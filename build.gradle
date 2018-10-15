@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'nl.trifork'
+version = '0.0.1-SNAPSHOT'
+
+description = """param-store-demo"""
+
+sourceCompatibility = 1.5
+targetCompatibility = 1.5
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+repositories {
+        
+     maven { url "https://repo.spring.io/milestone" }
+     maven { url "https://repo.spring.io/snapshot" }
+     maven { url "https://dl.bintray.com/rabbitmq/maven-milestones" }
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version:'2.0.0.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:'2.0.0.RELEASE'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter', version:'2.0.0.RELEASE'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-aws-parameter-store-config', version:'2.0.0.RELEASE'
+}
